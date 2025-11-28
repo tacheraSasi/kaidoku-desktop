@@ -12,17 +12,17 @@ import isOnline from "is-online";
 
 let tray: Tray | null = null;
 let mainWindow: BrowserWindow;
-const URL = "https://monkeytype.com/";
+const URL = "https://kaidoku.bio/";
 const OFFLINE_URL = "offline.html";
 
-app.setName("MonkeyType Desktop");
+app.setName("Kaidoku Desktop");
 
 app.setAboutPanelOptions({
-  applicationName: "MonkeyType Desktop",
+  applicationName: "Kaidoku Desktop",
   applicationVersion: "1.0.0",
   copyright: "© 2025 Tachera Sasi",
   credits:
-    "This is an unofficial wrapper around MonkeyType.\nMade with ❤️ using Electron by Tachera Sasi.",
+    "This is an unofficial wrapper around Kaidoku.\nMade with ❤️ using Electron by Tachera Sasi.",
   website: URL,
 });
 
@@ -35,7 +35,7 @@ async function createWindow() {
       preload: path.join(__dirname, "preload.js"),
       sandbox: false,
     },
-    icon: path.join(__dirname, "../assets/images/monkeytype.png"),
+    icon: path.join(__dirname, "../assets/images/Kaidoku.png"),
     frame: true,
     autoHideMenuBar: true,
     show: false,
@@ -57,7 +57,7 @@ async function createWindow() {
 // Create the tray icon and menu
 function createTray() {
   const trayIcon = nativeImage
-    .createFromPath(path.join(__dirname, "../assets/images/monkeytype.png"))
+    .createFromPath(path.join(__dirname, "../assets/images/Kaidoku.png"))
     .resize({ width: 16, height: 16 });
 
   tray = new Tray(trayIcon);
@@ -66,7 +66,7 @@ function createTray() {
     { label: "Quit", click: () => app.quit() },
   ]);
 
-  tray.setToolTip("MonkeyType Desktop");
+  tray.setToolTip("Kaidoku Desktop");
   tray.setContextMenu(contextMenu);
 }
 
@@ -74,8 +74,8 @@ function createTray() {
 function scheduleMorningNotification() {
   if (Notification.isSupported()) {
     new Notification({
-      title: "MonkeyType App",
-      body: "MonkeyType Desktop is running in the background.",
+      title: "Kaidoku App",
+      body: "Kaidoku Desktop is running in the background.",
     }).show();
   }
 }
